@@ -2,40 +2,25 @@ package Structs;
 
 import java.util.List;
 
-public class Band {
+public class Band extends Artist {
 	
-	private String name;
-	private List<Artist> members;
+	private List<Musician> members;
 
 	public Band() {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
 	 * @return the members
 	 */
-	public List<Artist> getMembers() {
+	public List<Musician> getMembers() {
 		return members;
 	}
 
 	/**
 	 * @param members the members to set
 	 */
-	public void setMembers(List<Artist> members) {
+	public void setMembers(List<Musician> members) {
 		this.members = members;
 	}
 
