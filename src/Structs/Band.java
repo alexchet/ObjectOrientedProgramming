@@ -1,13 +1,25 @@
 package Structs;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Band extends Artist {
 	
 	private List<Musician> members;
 
-	public Band(List<Musician> members) {
-		this.members = members;
+	public Band() { 
+		this.members = new ArrayList<Musician>();
+	}
+	
+	public Band(int ID, String name) {
+		this.setID(ID);
+		this.setName(name);
+		this.members = new ArrayList<Musician>();
+	}
+	
+	public void addMemeber(Musician musician) {
+		if (this.members == null) this.members = new ArrayList<Musician>();
+		this.members.add(musician);
 	}
 
 	/**
@@ -23,5 +35,4 @@ public class Band extends Artist {
 	public void setMembers(List<Musician> members) {
 		this.members = members;
 	}
-
 }
