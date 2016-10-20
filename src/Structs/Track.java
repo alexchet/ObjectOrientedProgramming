@@ -2,30 +2,36 @@ package Structs;
 
 import java.time.Duration;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Date;
 
 public class Track {
 
 	private String title;
 	private Artist artist;
-	private LocalDate released;
-	private Duration length;
+	private Date released;
+	private int length;
 	private int rating;
 	private String path;
 	private double size;
-	private List<Artist> guests;
+	private Artist guest;
 	private int countPlayed;
+	private int bandID;
+	private int musicianID;
 	
-	public Track(String title, Artist artist, LocalDate released, Duration length, int rating,
-			String path, double size, List<Artist> guests, int countPlayed) {
+	public Track () { }
+	
+	public Track(String title, Artist artist, Date released, int length, int rating,
+			String path, double size, Artist guest, int countPlayed, int bandID, int musicianID) {
 		this.title = title;
 		this.artist = artist;
 		this.released = released;
 		this.length = length;
 		this.rating = rating;
 		this.path = path;
-		this.guests = guests;
+		this.guest = guest;
 		this.countPlayed = countPlayed;
+		this.bandID = bandID;
+		this.musicianID = musicianID;
 	}
 
 	/**
@@ -59,28 +65,28 @@ public class Track {
 	/**
 	 * @return the released
 	 */
-	public LocalDate getReleased() {
+	public Date getReleased() {
 		return released;
 	}
 
 	/**
 	 * @param released the released to set
 	 */
-	public void setReleased(LocalDate released) {
+	public void setReleased(Date released) {
 		this.released = released;
 	}
 
 	/**
 	 * @return the length
 	 */
-	public Duration getLength() {
+	public int getLength() {
 		return length;
 	}
 
 	/**
 	 * @param length the length to set
 	 */
-	public void setLength(Duration length) {
+	public void setLength(int length) {
 		this.length = length;
 	}
 
@@ -129,15 +135,15 @@ public class Track {
 	/**
 	 * @return the guests
 	 */
-	public List<Artist> getGuests() {
-		return guests;
+	public Artist getGuest() {
+		return this.guest;
 	}
 
 	/**
 	 * @param guests the guests to set
 	 */
-	public void setGuests(List<Artist> guests) {
-		this.guests = guests;
+	public void setGuest(Artist guest) {
+		this.guest = guest;
 	}
 
 	/**
@@ -152,6 +158,28 @@ public class Track {
 	 */
 	public void setCountPlayed(int countPlayed) {
 		this.countPlayed = countPlayed;
+	}
+
+	public int getBandID() {
+		return bandID;
+	}
+
+	public void setBandID(int bandID) {
+		this.bandID = bandID;
+	}
+
+	/**
+	 * @return the musicianID
+	 */
+	public int getMusicianID() {
+		return musicianID;
+	}
+
+	/**
+	 * @param musicianID the musicianID to set
+	 */
+	public void setMusicianID(int musicianID) {
+		this.musicianID = musicianID;
 	}
 
 }

@@ -1,5 +1,5 @@
-
-import java.io.FileReader;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,7 +19,6 @@ public class main {
 	}
 
 	public static void main(String[] args) {
-
 		List<Musician> musicians = FileProvider.readMusician();
 		List<Band> bands = FileProvider.readBand();
 		List<Track> tracks = FileProvider.readTrack();
@@ -32,13 +31,30 @@ public class main {
 					break;
 				}
 			}
-			
-			System.out.println("ID: " + m.getID() + ", Name: " + m.getName());
+		}
+		
+		//Create tracks
+		for (Track t : tracks) {
+			for (Band b : bands) {
+				if (b.getID() == t.getBandID()) {
+					t.setArtist(b);
+				}
+			}
+			for (Musician m : musicians) {
+				if (m.getID() == t.getMusicianID()) {
+					t.setArtist(m);
+				}
+			}
 		}
 
-		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		for (Track t : tracks) {
-			System.out.println("Musicans for track: " + t.getTitle());
+			System.out.println("Track: " + t.getTitle());
+			System.out.println("Released: " + formatter.format(t.getReleased()));
+			int minutes = t.getLength() / 60;
+			int seconds = t.getLength() - minutes * 60;
+			System.out.println("Running Time: " + minutes + ":" + seconds);
+			System.out.println("Musicians: ");
 			Artist a = t.getArtist();
 			if (a instanceof Band) {
 				Band b = (Band) a;
@@ -50,7 +66,7 @@ public class main {
 				System.out.println(m.getName());
 			}
 			System.out.println("");
-		}*/
+		}
 	}
 
 }
