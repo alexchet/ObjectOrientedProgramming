@@ -1,14 +1,14 @@
 package Structs;
 
 import java.time.Duration;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Track {
 
 	private String title;
 	private Artist artist;
-	private Date released;
+	private LocalDate released;
 	private Duration length;
 	private int rating;
 	private String path;
@@ -16,8 +16,16 @@ public class Track {
 	private List<Artist> guests;
 	private int countPlayed;
 	
-	public Track() {
-		// TODO Auto-generated constructor stub
+	public Track(String title, Artist artist, LocalDate released, Duration length, int rating,
+			String path, double size, List<Artist> guests, int countPlayed) {
+		this.title = title;
+		this.artist = artist;
+		this.released = released;
+		this.length = length;
+		this.rating = rating;
+		this.path = path;
+		this.guests = guests;
+		this.countPlayed = countPlayed;
 	}
 
 	/**
@@ -51,14 +59,14 @@ public class Track {
 	/**
 	 * @return the released
 	 */
-	public Date getReleased() {
+	public LocalDate getReleased() {
 		return released;
 	}
 
 	/**
 	 * @param released the released to set
 	 */
-	public void setReleased(Date released) {
+	public void setReleased(LocalDate released) {
 		this.released = released;
 	}
 
