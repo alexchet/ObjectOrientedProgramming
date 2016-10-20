@@ -6,8 +6,8 @@ public class Band extends Artist {
 	
 	private List<Musician> members;
 
-	public Band() {
-		// TODO Auto-generated constructor stub
+	public Band(List<Musician> members) {
+		this.members = members;
 	}
 
 	/**
