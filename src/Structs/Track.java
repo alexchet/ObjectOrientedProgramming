@@ -1,11 +1,10 @@
 package Structs;
 
-import java.time.Duration;
-import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 
 public class Track {
-
 	private String title;
 	private Artist artist;
 	private Date released;
@@ -17,11 +16,15 @@ public class Track {
 	private int countPlayed;
 	private int bandID;
 	private int musicianID;
+	private List<Integer> albumIDs;
+	private int guestBandID;
+	private int guestMusicianID;
 	
 	public Track () { }
 	
 	public Track(String title, Artist artist, Date released, int length, int rating,
-			String path, double size, Artist guest, int countPlayed, int bandID, int musicianID) {
+			String path, double size, Artist guest, int countPlayed, int bandID,
+			int musicianID, List<Integer> albumIDs, int guestBandID, int guestMusicianID) {
 		this.title = title;
 		this.artist = artist;
 		this.released = released;
@@ -32,6 +35,19 @@ public class Track {
 		this.countPlayed = countPlayed;
 		this.bandID = bandID;
 		this.musicianID = musicianID;
+		this.albumIDs = albumIDs;
+		this.guestBandID = guestBandID;
+		this.guestMusicianID = guestMusicianID;
+	}
+	
+	public static Comparator<Track> COMPARE_RATING = new Comparator<Track>() {
+        public int compare(Track t1, Track t2) {
+            return new Integer(t1.rating).compareTo(t2.rating);
+        }
+    };
+	
+	public void play() {
+		this.countPlayed++;
 	}
 
 	/**
@@ -180,6 +196,48 @@ public class Track {
 	 */
 	public void setMusicianID(int musicianID) {
 		this.musicianID = musicianID;
+	}
+
+	/**
+	 * @return the albumIDs
+	 */
+	public List<Integer> getAlbumIDs() {
+		return albumIDs;
+	}
+
+	/**
+	 * @param albumIDs the albumIDs to set
+	 */
+	public void setAlbumIDs(List<Integer> albumIDs) {
+		this.albumIDs = albumIDs;
+	}
+
+	/**
+	 * @return the guestBandID
+	 */
+	public int getGuestBandID() {
+		return guestBandID;
+	}
+
+	/**
+	 * @param guestBandID the guestBandID to set
+	 */
+	public void setGuestBandID(int guestBandID) {
+		this.guestBandID = guestBandID;
+	}
+
+	/**
+	 * @return the guestMusicianID
+	 */
+	public int getGuestMusicianID() {
+		return guestMusicianID;
+	}
+
+	/**
+	 * @param guestMusicianID the guestMusicianID to set
+	 */
+	public void setGuestMusicianID(int guestMusicianID) {
+		this.guestMusicianID = guestMusicianID;
 	}
 
 }

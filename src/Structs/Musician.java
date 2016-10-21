@@ -1,8 +1,6 @@
 package Structs;
 
-import java.io.Serializable;
-
-public class Musician extends Artist implements Serializable {
+public class Musician extends Artist  {
 	
 	private int bandID;
 	

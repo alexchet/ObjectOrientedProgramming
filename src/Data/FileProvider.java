@@ -14,6 +14,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.ObjectWriter;
 import org.codehaus.jackson.type.TypeReference;
 
+import Structs.Album;
 import Structs.Band;
 import Structs.Musician;
 import Structs.Track;
@@ -83,6 +84,32 @@ public abstract class FileProvider {
 			
 			ObjectMapper mapper = new ObjectMapper();
 			return mapper.readValue(json, new TypeReference<List<Track>>() { });
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (buffer != null) {
+					buffer.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return null;
+	}
+	
+	public static List<Album> readAlbum() {
+		BufferedReader buffer = null;
+		
+		try {
+			File file = new File("albums.txt");
+			
+			buffer = new BufferedReader(new FileReader(file.getAbsolutePath()));
+			String json = buffer.readLine();
+			
+			ObjectMapper mapper = new ObjectMapper();
+			return mapper.readValue(json, new TypeReference<List<Album>>() { });
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
