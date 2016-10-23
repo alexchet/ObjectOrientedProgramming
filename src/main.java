@@ -108,6 +108,8 @@ public class main {
 		myPlaylist.addTracks(albums.get(0).getTracks());
 		Collections.sort(myPlaylist.getTracks(), Track.COMPARE_RATING);
 		printTrackMusicians(myPlaylist.getTracks());
+
+		/************ Extension 1 ************/
 	}
 	
 	public static void printTrackMusicians(List<Track> tracks) {

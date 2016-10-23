@@ -3,15 +3,28 @@ package Structs;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompilationAlbum {
-	private String title;
+public class CompilationAlbum extends SuperAlbum {
+
 	private Artist artist;
-	private List<Track> tracks;
 
 	public CompilationAlbum() { }
 
 	public CompilationAlbum(String title) {
-		this.title = title;
-		this.tracks = new ArrayList<Track>();
+		this.setTitle(title);
+		this.setTracks(new ArrayList<Track>());
+	}
+
+	/**
+	 * @return the artist
+	 */
+	public Artist getArtist() {
+		return artist;
+	}
+
+	/**
+	 * @param artist the artist to set
+	 */
+	public void setArtist(Artist artist) {
+		this.artist = artist;
 	}
 }
