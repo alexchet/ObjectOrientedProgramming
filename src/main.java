@@ -32,6 +32,7 @@ public class main {
 		List<Musician> musicians = FileProvider.readMusician();
 		List<Band> bands = FileProvider.readBand();
 		List<Track> tracks = FileProvider.readTrack();
+		List<Album> albums = FileProvider.readAlbum();
 		
 		//Create bands from musicians
 		for (Musician m : musicians) {
@@ -62,25 +63,13 @@ public class main {
 				}
 			}
 		}
-
-		tracks.get(2).play();
-		tracks.get(3).play();
-		tracks.get(4).play();
-		tracks.get(2).play();
-
-		//Print Tracks
-		printTrackMusicians(tracks);
-		
-		/************ BASICS 2 ************/
-		System.out.println("");
-		System.out.println("***************** Basics 2 ******************");
-		List<Album> albums = FileProvider.readAlbum();
 		
 		//Insert the tracks in albums
 		for (Album a : albums) {
 			for (Track t : tracks) {
 				if (a.getID() == t.getAlbumID()) {
 					a.addTrack(t);
+					t.setAlbum(a);
 				}
 			}
 			for (Band b : bands) {
@@ -94,6 +83,18 @@ public class main {
 				}
 			}
 		}
+
+		tracks.get(2).play();
+		tracks.get(3).play();
+		tracks.get(4).play();
+		tracks.get(2).play();
+
+		//Print Tracks
+		printTrackMusicians(tracks);
+		
+		/************ BASICS 2 ************/
+		System.out.println("");
+		System.out.println("***************** Basics 2 ******************");
 
 		//Print Albums
 		printAlbums(albums);	
@@ -123,14 +124,7 @@ public class main {
 	public static void printTrackMusicians(List<Track> tracks) {
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		for (Track t : tracks) {
-			System.out.println("Track: " + t.getTitle());
-			System.out.println("Released: " + formatter.format(t.getReleased()));
-			int minutes = t.getLength() / 60;
-			int seconds = t.getLength() - minutes * 60;
-			System.out.println("Running Time: " + minutes + ":" + seconds);
-			System.out.println("Time Played: " + t.getCountPlayed());
-			System.out.println("Rating: " + t.getRating());
-			System.out.println("Artist: " + t.getArtist().getName());
+			System.out.println(t.toString());
 			System.out.print("Musicians: ");
 			Artist a = t.getArtist();
 			if (a instanceof Band) {
