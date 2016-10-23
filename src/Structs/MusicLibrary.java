@@ -51,4 +51,9 @@ public class MusicLibrary {
 	public void setTracks(List<Track> tracks) {
 		this.tracks = tracks;
 	}
+	
+	@Override
+	public String toString() {
+		return "Music Library: " + this.getTitle() + ", No of Tracks: " + this.getTracks().size();
+	}
 }

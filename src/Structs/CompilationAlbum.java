@@ -47,4 +47,9 @@ public class CompilationAlbum extends SuperAlbum {
 	public void setCompilationTracks(List<CompilationTrack> compilationTracks) {
 		CompilationTracks = compilationTracks;
 	}
+	
+	@Override
+	public String toString() {
+		return "Compilation Title: " + super.getTitle() + ", No of Tracks: " + this.getCompilationTracks().size();
+	}
 }

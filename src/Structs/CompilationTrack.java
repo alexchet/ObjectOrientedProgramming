@@ -3,7 +3,7 @@ package Structs;
 import java.util.Date;
 import java.util.List;
 
-public class CompilationTrack extends Track {
+public class CompilationTrack extends SuperTrack {
 	
 	private CompilationAlbum compilationAlbum;
 	
@@ -38,5 +38,10 @@ public class CompilationTrack extends Track {
 	 */
 	public void setCompilationAlbum(CompilationAlbum compilationAlbum) {
 		this.compilationAlbum = compilationAlbum;
+	}
+	
+	@Override
+	public String toString() {
+		return "Title: " +  super.getTitle() + ", Album: " + super.getAlbum().getTitle();
 	}
 }

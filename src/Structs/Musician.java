@@ -25,4 +25,9 @@ public class Musician extends Artist  {
 	public void setBandID(int bandID) {
 		this.bandID = bandID;
 	}
+	
+	@Override
+	public String toString() {
+		return "Musician: " + this.getName();
+	}
 }

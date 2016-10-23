@@ -26,9 +26,6 @@ public class main {
 		System.out.println("*********************************************");
 		System.out.println("");
 		
-		/************ BASICS 1 ************/
-
-		System.out.println("***************** Basics 1 ******************");
 		List<Musician> musicians = FileProvider.readMusician();
 		List<Band> bands = FileProvider.readBand();
 		List<Track> tracks = FileProvider.readTrack();
@@ -84,6 +81,10 @@ public class main {
 			}
 		}
 
+		
+		/************ BASICS 1 ************/
+
+		System.out.println("***************** Basics 1 ******************");
 		tracks.get(2).play();
 		tracks.get(3).play();
 		tracks.get(4).play();
@@ -102,12 +103,12 @@ public class main {
 		/************ BASICS 3 ************/
 		System.out.println("");
 		System.out.println("***************** Basics 3 ******************");
-		MusicLibrary myPlaylist = new MusicLibrary("My Favourite Music");
-		myPlaylist.addTrack(tracks.get(8));
-		myPlaylist.addTrack(tracks.get(9));
-		myPlaylist.addTracks(albums.get(0).getTracks());
-		Collections.sort(myPlaylist.getTracks(), Track.COMPARE_RATING);
-		printTrackMusicians(myPlaylist.getTracks());
+		MusicLibrary musicLibrary = new MusicLibrary("My Favourite Music");
+		musicLibrary.addTrack(tracks.get(8));
+		musicLibrary.addTrack(tracks.get(9));
+		musicLibrary.addTracks(albums.get(0).getTracks());
+		Collections.sort(musicLibrary.getTracks(), Track.COMPARE_RATING);
+		printMusicLibrary(musicLibrary);
 
 		/************ Extension 1 ************/
 		System.out.println("**************** Extension 1 ****************");
@@ -118,62 +119,37 @@ public class main {
 		compAlbum.addCompilationTrack(new CompilationTrack(tracks.get(5), compAlbum));
 		compAlbum.addCompilationTrack(new CompilationTrack(tracks.get(7), compAlbum));
 		compAlbum.addCompilationTrack(new CompilationTrack(tracks.get(9), compAlbum));
-		
+		printCompilationAlbum(compAlbum);
+	}
+	
+	public static void printMusicLibrary(MusicLibrary musicLibrary) {
+		System.out.println(musicLibrary.toString());
+		printTrackMusicians(musicLibrary.getTracks());
 	}
 	
 	public static void printTrackMusicians(List<Track> tracks) {
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		for (Track t : tracks) {
 			System.out.println(t.toString());
-			System.out.print("Musicians: ");
-			Artist a = t.getArtist();
-			if (a instanceof Band) {
-				Band b = (Band) a;
-				for (Musician m : b.getMembers()) {
-					System.out.print(m.getName() + " ");
-				}
-			} else if (a instanceof Musician) {
-				Musician m = (Musician) a;
-				System.out.print(m.getName());
-			}
-			System.out.println("");
+			System.out.println(t.getArtist().toString());
 			if (t.getGuest() != null) {
 				System.out.println("Guest Artist: " + t.getGuest().getName());
-				System.out.print("Guest Musicians: ");
-				Artist ga = t.getGuest();
-				if (ga instanceof Band) {
-					Band b = (Band) ga;
-					for (Musician m : b.getMembers()) {
-						System.out.print(m.getName() + " ");
-					}
-				} else if (ga instanceof Musician) {
-					Musician m = (Musician) ga;
-					System.out.print(m.getName());
-				}
+				System.out.println("Guest " + t.getGuest().toString());
 			}
-			System.out.println("");
 			System.out.println("");
 		}
 	}
 	
 	public static void printAlbums(List<Album> albums) {
 		for (Album a : albums) {
-			int iTotalRunningTime = 0, iTotalSize = 0, iTotalRating = 0;
-			for (Track t : a.getTracks()) {
-				iTotalRunningTime += t.getLength();
-				iTotalSize += t.getSize();
-				iTotalRating += t.getRating();
-			}
-			
-			int minutes = iTotalRunningTime / 60;
-			int seconds = iTotalRunningTime - minutes * 60;
-			System.out.println("Album: " + a.getTitle());
-			System.out.println("Artist: " + a.getArtist().getName());
-			System.out.println("Total running time: " + minutes + ":" + seconds);
-			System.out.println("Size: " + iTotalSize + "MB");
-			System.out.println("Average Rating: " + ((double)iTotalRating / (double)a.getTracks().size()));
-			System.out.println("");
+			System.out.println(a.toString());	
+			System.out.println("");		
 		}
 	}
 
+	public static void printCompilationAlbum(CompilationAlbum compAlbum) {
+		System.out.println(compAlbum.toString());
+		for (CompilationTrack compTrack : compAlbum.getCompilationTracks()) {
+			System.out.println(compTrack.toString());
+		}
+	}
 }

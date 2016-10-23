@@ -35,4 +35,16 @@ public class Band extends Artist {
 	public void setMembers(List<Musician> members) {
 		this.members = members;
 	}
+	
+	@Override
+	public String toString() {
+		String sMembers = "";
+		
+		for (Musician m : this.getMembers()) {
+			sMembers += (sMembers != "" ? ", " : "");
+			sMembers += m.getName();
+		}
+		
+		return "Musicians: " + sMembers;
+	}
 }

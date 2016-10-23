@@ -113,4 +113,20 @@ public class Album extends SuperAlbum {
 		this.tracks = tracks;
 	}
 
+	@Override
+	public String toString() {
+		int iTotalRunningTime = 0, iTotalSize = 0, iTotalRating = 0;
+		for (Track t : this.getTracks()) {
+			iTotalRunningTime += t.getLength();
+			iTotalSize += t.getSize();
+			iTotalRating += t.getRating();
+		}
+
+		int minutes = iTotalRunningTime / 60;
+		int seconds = iTotalRunningTime - minutes * 60;
+
+		return "Album: " + this.getTitle() + ", Artist: " + this.getArtist().toString() + 
+		", Total running time: " + minutes + ":" + seconds + ", Size: " + iTotalSize + "MB" +
+		", Average Rating: " + ((double)iTotalRating / (double)this.getTracks().size());
+	}
 }
