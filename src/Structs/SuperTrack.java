@@ -14,10 +14,11 @@ public abstract class SuperTrack {
 	private double size;
 	private Artist guest;
 	private int countPlayed;
+	private Album album;
 	
 	private int bandID;
 	private int musicianID;
-	private List<Integer> albumIDs;
+	private int albumID;
 	private int guestBandID;
 	private int guestMusicianID;
 	
@@ -182,17 +183,17 @@ public abstract class SuperTrack {
 	}
 
 	/**
-	 * @return the albumIDs
+	 * @return the albumID
 	 */
-	public List<Integer> getAlbumIDs() {
-		return albumIDs;
+	public int getAlbumID() {
+		return albumID;
 	}
 
 	/**
-	 * @param albumIDs the albumIDs to set
+	 * @param albumIDs the albumID to set
 	 */
-	public void setAlbumIDs(List<Integer> albumIDs) {
-		this.albumIDs = albumIDs;
+	public void setAlbumID(int albumID) {
+		this.albumID = albumID;
 	}
 
 	/**
@@ -221,6 +222,20 @@ public abstract class SuperTrack {
 	 */
 	public void setGuestMusicianID(int guestMusicianID) {
 		this.guestMusicianID = guestMusicianID;
+	}
+
+	/**
+	 * @return the album
+	 */
+	public Album getAlbum() {
+		return album;
+	}
+
+	/**
+	 * @param album the album to set
+	 */
+	public void setAlbum(Album album) {
+		this.album = album;
 	}
 
 }

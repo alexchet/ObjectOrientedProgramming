@@ -7,6 +7,8 @@ import Structs.Track;
 import Structs.Album;
 import Structs.Artist;
 import Structs.Band;
+import Structs.CompilationAlbum;
+import Structs.CompilationTrack;
 import Structs.MusicLibrary;
 import Structs.Musician;
 
@@ -77,11 +79,8 @@ public class main {
 		//Insert the tracks in albums
 		for (Album a : albums) {
 			for (Track t : tracks) {
-				List<Integer> albumsIDs = t.getAlbumIDs();
-				for (Integer albumID : albumsIDs) {
-					if (a.getID() == albumID) {
-						a.addTrack(t);
-					}
+				if (a.getID() == t.getAlbumID()) {
+					a.addTrack(t);
 				}
 			}
 			for (Band b : bands) {
@@ -110,6 +109,15 @@ public class main {
 		printTrackMusicians(myPlaylist.getTracks());
 
 		/************ Extension 1 ************/
+		System.out.println("**************** Extension 1 ****************");
+		CompilationAlbum compAlbum = new CompilationAlbum("Various Artist VOL 1");
+		compAlbum.addCompilationTrack(new CompilationTrack(tracks.get(0), compAlbum));
+		compAlbum.addCompilationTrack(new CompilationTrack(tracks.get(2), compAlbum));
+		compAlbum.addCompilationTrack(new CompilationTrack(tracks.get(4), compAlbum));
+		compAlbum.addCompilationTrack(new CompilationTrack(tracks.get(5), compAlbum));
+		compAlbum.addCompilationTrack(new CompilationTrack(tracks.get(7), compAlbum));
+		compAlbum.addCompilationTrack(new CompilationTrack(tracks.get(9), compAlbum));
+		
 	}
 	
 	public static void printTrackMusicians(List<Track> tracks) {

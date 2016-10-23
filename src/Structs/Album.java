@@ -8,6 +8,7 @@ public class Album extends SuperAlbum {
 	private int ID;
 	private Artist artist;
 	private String type;
+	private List<Track> tracks;
 	private int bandID;
 	private int musicianID;
 
@@ -18,7 +19,7 @@ public class Album extends SuperAlbum {
 		this.artist = artist;
 		this.setTitle(title);
 		this.type = type;
-		this.setTracks(tracks);
+		this.tracks = tracks;
 		this.bandID = bandID;
 		this.musicianID = musicianID;
 	}
@@ -96,6 +97,20 @@ public class Album extends SuperAlbum {
 	 */
 	public void setMusicianID(int musicianID) {
 		this.musicianID = musicianID;
+	}
+
+	/**
+	 * @return the tracks
+	 */
+	public List<Track> getTracks() {
+		return tracks;
+	}
+
+	/**
+	 * @param tracks the tracks to set
+	 */
+	public void setTracks(List<Track> tracks) {
+		this.tracks = tracks;
 	}
 
 }

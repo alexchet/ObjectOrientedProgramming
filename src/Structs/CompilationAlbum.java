@@ -6,12 +6,18 @@ import java.util.List;
 public class CompilationAlbum extends SuperAlbum {
 
 	private List<Artist> artist;
+	private List<CompilationTrack> CompilationTracks;
+	
 
 	public CompilationAlbum() { }
 
 	public CompilationAlbum(String title) {
 		this.setTitle(title);
-		this.setTracks(new ArrayList<Track>());
+	}
+	
+	public void addCompilationTrack(CompilationTrack CompilationTrack) {
+		if (this.getCompilationTracks() == null) this.setCompilationTracks(new ArrayList<CompilationTrack>());
+		this.getCompilationTracks().add(CompilationTrack);
 	}
 
 	/**
@@ -26,5 +32,19 @@ public class CompilationAlbum extends SuperAlbum {
 	 */
 	public void setArtist(List<Artist> artist) {
 		this.artist = artist;
+	}
+
+	/**
+	 * @return the compilationTracks
+	 */
+	public List<CompilationTrack> getCompilationTracks() {
+		return CompilationTracks;
+	}
+
+	/**
+	 * @param compilationTracks the compilationTracks to set
+	 */
+	public void setCompilationTracks(List<CompilationTrack> compilationTracks) {
+		CompilationTracks = compilationTracks;
 	}
 }

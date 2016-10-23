@@ -8,8 +8,8 @@ public class Track extends SuperTrack {
 	public Track() { }
 	
 	public Track(String title, Artist artist, Date released, int length, int rating,
-			double size, Artist guest, int countPlayed, int bandID, int musicianID,
-			List<Integer> albumIDs, int guestBandID, int guestMusicianID) {
+			double size, Artist guest, int countPlayed, Album album, int bandID, int musicianID,
+			int albumID, int guestBandID, int guestMusicianID) {
 		setTitle(title);
 		setArtist(artist);
 		setReleased(released);
@@ -17,9 +17,10 @@ public class Track extends SuperTrack {
 		setRating(rating);
 		setGuest(guest);
 		setCountPlayed(countPlayed);
+		setAlbum(album);
 		setBandID(bandID);
 		setMusicianID(musicianID);
-		setAlbumIDs(albumIDs);
+		setAlbumID(albumID);
 		setGuestBandID(guestBandID);
 		setGuestMusicianID(guestMusicianID);
 	}
