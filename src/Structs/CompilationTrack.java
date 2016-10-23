@@ -1,29 +1,30 @@
 package Structs;
 
-public class CompilationTrack {
+import java.util.Date;
+import java.util.List;
+
+public class CompilationTrack extends Track {
 	
-	private Track track;
 	private Album album;
 	
 	public CompilationTrack() { }
-	
-	public CompilationTrack(Track track, Album album) {
-		this.setTrack(track);
-		this.setAlbum(album);
-	}
 
-	/**
-	 * @return the track
-	 */
-	public Track getTrack() {
-		return track;
-	}
-
-	/**
-	 * @param track the track to set
-	 */
-	public void setTrack(Track track) {
-		this.track = track;
+	public CompilationTrack(String title, Artist artist, Date released, int length, int rating,
+			double size, Artist guest, int countPlayed, int bandID, int musicianID,
+			List<Integer> albumIDs, int guestBandID, int guestMusicianID, Album album) {
+		setTitle(title);
+		setArtist(artist);
+		setReleased(released);
+		setLength(length);
+		setRating(rating);
+		setGuest(guest);
+		setCountPlayed(countPlayed);
+		setBandID(bandID);
+		setMusicianID(musicianID);
+		setAlbumIDs(albumIDs);
+		setGuestBandID(guestBandID);
+		setGuestMusicianID(guestMusicianID);
+		this.album = album;
 	}
 
 	/**

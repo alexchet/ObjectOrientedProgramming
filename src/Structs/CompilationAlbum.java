@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CompilationAlbum extends SuperAlbum {
 
-	private Artist artist;
+	private List<Artist> artist;
 
 	public CompilationAlbum() { }
 
@@ -17,14 +17,14 @@ public class CompilationAlbum extends SuperAlbum {
 	/**
 	 * @return the artist
 	 */
-	public Artist getArtist() {
+	public List<Artist> getArtist() {
 		return artist;
 	}
 
 	/**
 	 * @param artist the artist to set
 	 */
-	public void setArtist(Artist artist) {
+	public void setArtist(List<Artist> artist) {
 		this.artist = artist;
 	}
 }
