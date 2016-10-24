@@ -1,8 +1,5 @@
 package Structs;
 
-import java.util.Date;
-import java.util.List;
-
 public class CompilationTrack extends SuperTrack {
 	
 	private CompilationAlbum compilationAlbum;
