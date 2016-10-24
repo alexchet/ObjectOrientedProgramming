@@ -6,10 +6,8 @@ public class Musician extends Artist  {
 	
 	public Musician() {	}
 	
-	public Musician(int ID, String name, Integer bandID) {
-		this.setID(ID);
+	public Musician(String name) {
 		this.setName(name);
-		if (bandID != null) this.setBandID(bandID.intValue());
 	}
 
 	/**

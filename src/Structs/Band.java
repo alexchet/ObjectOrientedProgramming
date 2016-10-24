@@ -11,13 +11,12 @@ public class Band extends Artist {
 		this.members = new ArrayList<Musician>();
 	}
 	
-	public Band(int ID, String name) {
-		this.setID(ID);
+	public Band(String name) {
 		this.setName(name);
 		this.members = new ArrayList<Musician>();
 	}
 	
-	public void addMemeber(Musician musician) {
+	public void addMember(Musician musician) {
 		if (this.members == null) this.members = new ArrayList<Musician>();
 		this.members.add(musician);
 	}

@@ -15,11 +15,6 @@ public class CompilationTrack extends SuperTrack {
 		setGuest(track.getGuest());
 		setCountPlayed(track.getCountPlayed());
 		setAlbum(track.getAlbum());
-		setBandID(track.getBandID());
-		setMusicianID(track.getMusicianID());
-		setAlbumID(track.getAlbumID());
-		setGuestBandID(track.getGuestBandID());
-		setGuestMusicianID(track.getGuestMusicianID());
 		this.compilationAlbum = compilationAlbum;
 	}
 
