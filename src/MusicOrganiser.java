@@ -1,22 +1,23 @@
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import Structs.Track;
 import Structs.Album;
-import Structs.Artist;
 import Structs.Band;
 import Structs.CompilationAlbum;
 import Structs.CompilationTrack;
 import Structs.MusicLibrary;
 import Structs.Musician;
-
+import Data.Common;
 import Data.FileProvider;
 
-public class main {
+public class MusicOrganiser {
+	
+	//Size are in KiloBytes
+	public static final int CD_SIZE = 716800;
+	public static final int DVD_SIZE = 4928307;
 
-	public main() {
+	public MusicOrganiser() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -80,6 +81,8 @@ public class main {
 				}
 			}
 		}
+		
+		//FileProvider.write(tracks, "tracks");
 
 		
 		/************ BASICS 1 ************/
@@ -120,6 +123,15 @@ public class main {
 		compAlbum.addCompilationTrack(new CompilationTrack(tracks.get(7), compAlbum));
 		compAlbum.addCompilationTrack(new CompilationTrack(tracks.get(9), compAlbum));
 		printCompilationAlbum(compAlbum);
+		
+		/************ Extension 2 ************/
+		System.out.println("");
+		System.out.println("**************** Extension 2 ****************");
+		List<List<Track>> cds = Common.bestFit(tracks, CD_SIZE);
+		System.out.println("No of CDs needed: " + cds.size());
+		
+		List<List<Track>> dvds = Common.bestFit(tracks, DVD_SIZE);
+		System.out.println("No of DVDs needed: " + dvds.size());
 	}
 	
 	public static void printMusicLibrary(MusicLibrary musicLibrary) {

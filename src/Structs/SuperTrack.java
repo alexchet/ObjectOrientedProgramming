@@ -2,7 +2,6 @@ package Structs;
 
 import java.util.Comparator;
 import java.util.Date;
-import java.util.List;
 
 public abstract class SuperTrack {
 	private String title;
@@ -10,7 +9,6 @@ public abstract class SuperTrack {
 	private Date released;
 	private int length;
 	private int rating;
-	private String path;
 	private double size;
 	private Artist guest;
 	private int countPlayed;
@@ -102,20 +100,6 @@ public abstract class SuperTrack {
 	 */
 	public void setRating(int rating) {
 		this.rating = rating;
-	}
-
-	/**
-	 * @return the path
-	 */
-	public String getPath() {
-		return path;
-	}
-
-	/**
-	 * @param path the path to set
-	 */
-	public void setPath(String path) {
-		this.path = path;
 	}
 
 	/**
