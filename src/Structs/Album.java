@@ -112,18 +112,24 @@ public class Album extends SuperAlbum {
 
 	@Override
 	public String toString() {
-		int iTotalRunningTime = 0, iTotalSize = 0, iTotalRating = 0;
-		for (Track t : this.getTracks()) {
-			iTotalRunningTime += t.getLength();
-			iTotalSize += t.getSize();
-			iTotalRating += t.getRating();
+		try {
+			int iTotalRunningTime = 0, iTotalRating = 0;
+			double iTotalSize = 0;
+			for (Track t : this.getTracks()) {
+				iTotalRunningTime += t.getLength();
+				iTotalSize += t.getSize();
+				iTotalRating += t.getRating();
+			}
+	
+			int minutes = iTotalRunningTime / 60;
+			int seconds = iTotalRunningTime - minutes * 60;
+	
+			return "Album: " + this.getTitle() + ", Artist: " + this.getArtist().toString() + 
+			", Total running time: " + minutes + ":" + seconds + ", Size: " + (iTotalSize / 1024) + "MB" +
+			", Average Rating: " + ((double)iTotalRating / (double)this.getTracks().size());
+		} catch(NullPointerException NPE) {
+			System.out.println("Sorry, please Input some tracks in the album");
+			return "";
 		}
-
-		int minutes = iTotalRunningTime / 60;
-		int seconds = iTotalRunningTime - minutes * 60;
-
-		return "Album: " + this.getTitle() + ", Artist: " + this.getArtist().toString() + 
-		", Total running time: " + minutes + ":" + seconds + ", Size: " + iTotalSize + "MB" +
-		", Average Rating: " + ((double)iTotalRating / (double)this.getTracks().size());
 	}
 }

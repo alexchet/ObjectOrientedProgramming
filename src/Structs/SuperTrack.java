@@ -106,7 +106,7 @@ public abstract class SuperTrack {
 	 * @return the size
 	 */
 	public double getSize() {
-		return size;
+		return this.size;
 	}
 
 	/**

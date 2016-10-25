@@ -16,6 +16,12 @@ public class Band extends Artist {
 		this.members = new ArrayList<Musician>();
 	}
 	
+	public Band(String name, List<Musician> members) {
+		this.setName(name);
+		if (this.members == null) this.members = new ArrayList<Musician>();
+		this.setMembers(members);
+	}
+	
 	public void addMember(Musician musician) {
 		if (this.members == null) this.members = new ArrayList<Musician>();
 		this.members.add(musician);
@@ -44,6 +50,6 @@ public class Band extends Artist {
 			sMembers += m.getName();
 		}
 		
-		return "Musicians: " + sMembers;
+		return "Band: " + this.getName() + "\nMusicians: " + sMembers;
 	}
 }

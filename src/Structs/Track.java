@@ -14,6 +14,7 @@ public class Track extends SuperTrack {
 		setReleased(released);
 		setLength(length);
 		setRating(rating);
+		setSize(size);
 		setGuest(guest);
 		setCountPlayed(countPlayed);
 		setAlbum(album);

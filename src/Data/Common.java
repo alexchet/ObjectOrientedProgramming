@@ -17,6 +17,9 @@ import org.codehaus.jackson.type.TypeReference;
 
 import Structs.Album;
 import Structs.Band;
+import Structs.CompilationAlbum;
+import Structs.CompilationTrack;
+import Structs.MusicLibrary;
 import Structs.Musician;
 import Structs.Track;
 
@@ -270,6 +273,37 @@ public abstract class Common {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
+	}
+	
+	public static void printMusicLibrary(MusicLibrary musicLibrary) {
+		System.out.println(musicLibrary.toString());
+		printTrackMusicians(musicLibrary.getTracks());
+	}
+	
+	public static void printTrackMusicians(List<Track> tracks) {
+		for (Track t : tracks) {
+			System.out.println(t.toString());
+			System.out.println(t.getArtist().toString());
+			if (t.getGuest() != null) {
+				System.out.println("Guest Artist: " + t.getGuest().getName());
+				System.out.println("Guest " + t.getGuest().toString());
+			}
+			System.out.println("");
+		}
+	}
+	
+	public static void printAlbums(List<Album> albums) {
+		for (Album a : albums) {
+			System.out.println(a.toString());	
+			System.out.println("");		
+		}
+	}
+
+	public static void printCompilationAlbum(CompilationAlbum compAlbum) {
+		System.out.println(compAlbum.toString());
+		for (CompilationTrack compTrack : compAlbum.getCompilationTracks()) {
+			System.out.println(compTrack.toString());
 		}
 	}
 }
