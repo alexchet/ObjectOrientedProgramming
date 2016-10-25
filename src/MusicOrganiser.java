@@ -36,7 +36,7 @@ public class MusicOrganiser {
 		for (Musician m : musicians) {
 			for (Band b : bands) { 
 				if (m.getBandID() == b.getID()) {
-					b.addMemeber(m);
+					b.addMember(m);
 					break;
 				}
 			}

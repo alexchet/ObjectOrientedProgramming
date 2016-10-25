@@ -14,14 +14,11 @@ public class Album extends SuperAlbum {
 
 	public Album() { }
 
-	public Album(int ID, Artist artist, String title, String type, List<Track> tracks, int bandID, int musicianID) {
-		this.ID = ID;
+	public Album(Artist artist, String title, String type, List<Track> tracks) {
 		this.artist = artist;
 		this.setTitle(title);
 		this.type = type;
 		this.tracks = tracks;
-		this.bandID = bandID;
-		this.musicianID = musicianID;
 	}
 	
 	public void addTrack(Track track) {
