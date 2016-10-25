@@ -9,14 +9,9 @@ import Structs.CompilationTrack;
 import Structs.MusicLibrary;
 import Structs.Musician;
 import Data.Common;
-import Data.FileProvider;
 
 public class MusicOrganiser {
 	
-	//Size are in KiloBytes
-	public static final int CD_SIZE = 716800;
-	public static final int DVD_SIZE = 4928307;
-
 	public MusicOrganiser() {
 		// TODO Auto-generated constructor stub
 	}
@@ -26,64 +21,12 @@ public class MusicOrganiser {
 		System.out.println("*** CSC8406 - Object Oriented Programming ***");
 		System.out.println("*********************************************");
 		System.out.println("");
-		
-		List<Musician> musicians = FileProvider.readMusician();
-		List<Band> bands = FileProvider.readBand();
-		List<Track> tracks = FileProvider.readTrack();
-		List<Album> albums = FileProvider.readAlbum();
-		
-		//Create bands from musicians
-		for (Musician m : musicians) {
-			for (Band b : bands) { 
-				if (m.getBandID() == b.getID()) {
-					b.addMember(m);
-					break;
-				}
-			}
-		}
-		
-		//Create tracks
-		for (Track t : tracks) {
-			for (Band b : bands) {
-				if (b.getID() == t.getBandID()) {
-					t.setArtist(b);
-				}
-				if (b.getID() == t.getGuestBandID()) {
-					t.setGuest(b);
-				}
-			}
-			for (Musician m : musicians) {
-				if (m.getID() == t.getMusicianID()) {
-					t.setArtist(m);
-				}
-				if (m.getID() == t.getGuestMusicianID()) {
-					t.setGuest(m);
-				}
-			}
-		}
-		
-		//Insert the tracks in albums
-		for (Album a : albums) {
-			for (Track t : tracks) {
-				if (a.getID() == t.getAlbumID()) {
-					a.addTrack(t);
-					t.setAlbum(a);
-				}
-			}
-			for (Band b : bands) {
-				if (b.getID() == a.getBandID()) {
-					a.setArtist(b);
-				}
-			}
-			for (Musician m : musicians) {
-				if (m.getID() == a.getMusicianID()) {
-					a.setArtist(m);
-				}
-			}
-		}
-		
-		//FileProvider.write(tracks, "tracks");
 
+		//Pre-loading some data from JSON files
+		List<Musician> musicians = Common.loadMusicians();
+		List<Band> bands = Common.loadBands(musicians);
+	    List<Track> tracks = Common.loadTracks(bands, musicians);
+		List<Album> albums = Common.loadAlbums(tracks, bands, musicians);
 		
 		/************ BASICS 1 ************/
 
@@ -127,10 +70,10 @@ public class MusicOrganiser {
 		/************ Extension 2 ************/
 		System.out.println("");
 		System.out.println("**************** Extension 2 ****************");
-		List<List<Track>> cds = Common.bestFit(tracks, CD_SIZE);
+		List<List<Track>> cds = Common.bestFit(tracks, Common.CD_SIZE);
 		System.out.println("No of CDs needed: " + cds.size());
 		
-		List<List<Track>> dvds = Common.bestFit(tracks, DVD_SIZE);
+		List<List<Track>> dvds = Common.bestFit(tracks, Common.DVD_SIZE);
 		System.out.println("No of DVDs needed: " + dvds.size());
 	}
 	

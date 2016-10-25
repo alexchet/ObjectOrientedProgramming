@@ -21,6 +21,10 @@ import Structs.Musician;
 import Structs.Track;
 
 public abstract class Common {
+
+	//Size are in KiloBytes
+	public static final int CD_SIZE = 716800;
+	public static final int DVD_SIZE = 4928307;
 	
 	public static List<List<Track>> bestFit(List<Track> tracks, int diskSize) {
 		List<List<Track>> bins = new ArrayList<List<Track>>();
@@ -57,7 +61,11 @@ public abstract class Common {
 		return totalSize;
 	}
 	
-	public static List<Musician> readMusician() {
+	public static List<Musician> loadMusicians() {
+		return readMusician();
+	}
+	
+	private static List<Musician> readMusician() {
 		BufferedReader buffer = null;
 		
 		try {
@@ -83,7 +91,23 @@ public abstract class Common {
 		return null;
 	}
 	
-	public static List<Band> readBand() {
+	public static List<Band> loadBands(List<Musician> musicians) {
+		List<Band> bands = readBand();
+		
+		//Create bands from musicians
+		for (Musician m : musicians) {
+			for (Band b : bands) { 
+				if (m.getBandID() == b.getID()) {
+					b.addMember(m);
+					break;
+				}
+			}
+		}
+		
+		return bands;
+	}
+	
+	private static List<Band> readBand() {
 		BufferedReader buffer = null;
 		
 		try {
@@ -109,7 +133,33 @@ public abstract class Common {
 		return null;
 	}
 	
-	public static List<Track> readTrack() {
+	public static List<Track> loadTracks(List<Band> bands, List<Musician> musicians) {
+		List<Track> tracks = readTrack();
+		
+		//Create tracks
+		for (Track t : tracks) {
+			for (Band b : bands) {
+				if (b.getID() == t.getBandID()) {
+					t.setArtist(b);
+				}
+				if (b.getID() == t.getGuestBandID()) {
+					t.setGuest(b);
+				}
+			}
+			for (Musician m : musicians) {
+				if (m.getID() == t.getMusicianID()) {
+					t.setArtist(m);
+				}
+				if (m.getID() == t.getGuestMusicianID()) {
+					t.setGuest(m);
+				}
+			}
+		}
+		
+		return tracks;
+	}
+	
+	private static List<Track> readTrack() {
 		BufferedReader buffer = null;
 		
 		try {
@@ -135,7 +185,33 @@ public abstract class Common {
 		return null;
 	}
 	
-	public static List<Album> readAlbum() {
+	public static List<Album> loadAlbums(List<Track> tracks, List<Band> bands, List<Musician> musicians) {
+		List<Album> albums = readAlbum();
+		
+		//Insert the tracks in albums
+		for (Album a : albums) {
+			for (Track t : tracks) {
+				if (a.getID() == t.getAlbumID()) {
+					a.addTrack(t);
+					t.setAlbum(a);
+				}
+			}
+			for (Band b : bands) {
+				if (b.getID() == a.getBandID()) {
+					a.setArtist(b);
+				}
+			}
+			for (Musician m : musicians) {
+				if (m.getID() == a.getMusicianID()) {
+					a.setArtist(m);
+				}
+			}
+		}
+		
+		return albums;
+	}
+	
+	private static List<Album> readAlbum() {
 		BufferedReader buffer = null;
 		
 		try {
