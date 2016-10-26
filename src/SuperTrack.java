@@ -56,7 +56,6 @@ public abstract class SuperTrack {
 	 */
 	private Album album;
 
-	
 	/**
 	 * Private field, band identification of the track
 	 */
@@ -106,7 +105,7 @@ public abstract class SuperTrack {
 	/**
 	 * Method will return the title of the track object.
 	 * 
-	 * @return The tile of the track.
+	 * @return The title of the track.
 	 */
 	public String getTitle() {
 		return title;
