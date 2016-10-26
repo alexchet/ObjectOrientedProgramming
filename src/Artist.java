@@ -1,36 +1,55 @@
-
-
+/**
+ * <p>This is an abstract class which describes the most basic details
+ * of an Artist. Since all version of artist have the same common properties
+ * it was decided that having a super class for an artist is appropriate.
+ * 
+ * @author Alexander Chetcuti
+ *
+ */
 public abstract class Artist {
 	
+	/**
+	 * Private field, ID of the artist.
+	 */
 	private int ID;
-	private String name;
 	
-	public Artist() { }
+	/**
+	 * Private field, name of the artist.
+	 */
+	private String name;
 
 	/**
-	 * @return the iD
+	 * Method will return the ID of the artist object.
+	 * 
+	 * @return The ID of the artist.
 	 */
 	public int getID() {
 		return ID;
 	}
 
 	/**
-	 * @param iD the iD to set
-	 */
+	 * Method will set the ID of the artist object.
+	 * 
+	 * @param ID The ID to be set for the artist.
+	 */	
 	public void setID(int iD) {
 		ID = iD;
 	}
 
 	/**
-	 * @return the name
+	 * Method will return the name of the artist object.
+	 * 
+	 * @return The name of the artist.
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * @param name the name to set
-	 */
+	 * Method will set the name of the artist object.
+	 * 
+	 * @param name The name to be set for the artist.
+	 */	
 	public void setName(String name) {
 		this.name = name;
 	}
