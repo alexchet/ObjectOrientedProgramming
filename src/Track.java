@@ -57,13 +57,26 @@ public class Track extends SuperTrack {
 	 */
 	@Override
 	public String toString() {
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		int minutes = super.getLength() / 60;
-		int seconds = super.getLength() - minutes * 60;
+		try {
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			int minutes = super.getLength() / 60;
+			int seconds = super.getLength() - minutes * 60;
+			
+			return "Title: " + super.getTitle() + ", Artist: " + super.getArtist().getName() +
+			(super.getAlbum() != null ? ", Album: " + super.getAlbum().getTitle() : "") + ", Released: " +  
+			formatter.format(super.getReleased()) + ", Duration: " + minutes + ":" + seconds + 
+			", Times Played: " + super.getCountPlayed() + ", Rating: " + super.getRating();
+		} catch (NullPointerException ex) {
+			System.out.println("Please make sure all the information inserted.");
+			ex.printStackTrace();
+		} catch (IllegalArgumentException ex) {
+			System.out.println("Please make sure date format is correct.");
+			ex.printStackTrace();
+		} catch (Exception ex) {
+			System.out.println("Something went wrong while processing.");
+			ex.printStackTrace();
+		}
 		
-		return "Title: " + super.getTitle() + ", Artist: " + super.getArtist().getName() +
-		(super.getAlbum() != null ? ", Album: " + super.getAlbum().getTitle() : "") + ", Released: " +  
-		formatter.format(super.getReleased()) + ", Duration: " + minutes + ":" + seconds + 
-		", Times Played: " + super.getCountPlayed() + ", Rating: " + super.getRating();
+		return null;
 	}
 }
