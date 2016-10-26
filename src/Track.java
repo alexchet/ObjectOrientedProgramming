@@ -7,7 +7,7 @@ import java.util.Date;
  * can make use of all the properties inherited and can be set in the constructor
  * of this class.
  * 
- * This class is still a basic track so it does not have any other additional 
+ * <p>This class is still a basic track so it does not have any other additional 
  * properties. However the method <i>toString</i> is being overridden to 
  * change it's functionality and output only what it needs to output.
  * 

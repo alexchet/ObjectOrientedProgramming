@@ -93,7 +93,7 @@ public class MusicLibrary {
 	}
 	
 	/**
-	 * This method overrides the method <i>toString</i>, and will output a string with 
+	 * <p>This method overrides the method <i>toString</i>, and will output a string with 
 	 * the properties of the music library.
 	 */
 	@Override
