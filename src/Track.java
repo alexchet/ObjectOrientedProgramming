@@ -1,7 +1,7 @@
-
-
 import java.text.SimpleDateFormat;
+
 import java.util.Date;
+
 /**
  * <p>This class extends the class <i>SuperTrack</i>. By doing this this class
  * can make use of all the properties inherited and can be set in the constructor
