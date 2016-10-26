@@ -89,6 +89,8 @@ public class Band extends Artist {
 	 * 
 	 * <p>The method will loop every member of the band and append it to a string to 
 	 * be returned with the rest of the results.
+	 * 
+	 * @return The final concatenated string.
 	 */
 	@Override
 	public String toString() {

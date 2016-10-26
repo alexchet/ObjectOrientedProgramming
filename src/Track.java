@@ -54,6 +54,8 @@ public class Track extends SuperTrack {
 	 * proper string. Then a calculation for the amount of minuted and seconds in done on 
 	 * the property length. The method then return a concatenated string of the most important
 	 * information found in this class.
+	 * 
+	 * @return The final concatenated string.
 	 */
 	@Override
 	public String toString() {

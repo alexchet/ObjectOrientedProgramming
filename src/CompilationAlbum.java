@@ -88,6 +88,8 @@ public class CompilationAlbum extends SuperAlbum {
 	/**
 	 * <p>This method overrides the method <i>toString</i>, and will output a string with 
 	 * the properties of the musician.
+	 * 
+	 * @return The final concatenated string.
 	 */
 	@Override
 	public String toString() {
