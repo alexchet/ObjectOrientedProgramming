@@ -1,4 +1,4 @@
-package Structs;
+
 
 public class Musician extends Artist  {
 	

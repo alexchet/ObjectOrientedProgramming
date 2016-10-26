@@ -1,4 +1,4 @@
-package Structs;
+
 
 public abstract class Artist {
 	
