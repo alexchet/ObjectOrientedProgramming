@@ -30,10 +30,24 @@ import org.codehaus.jackson.type.TypeReference;
  * <i>IOException</i> is also used to catch exception that are thrown from
  * calling the <i>readLine()</i> method.
  * 
- * <p>References: Bin packing problem (First Fit) 
- * <br/>Author: Bastian Rieck
- * <br/>Title: Basic Analysis of Bin-Packing Heuristics
- * <br/>Page 2
+ * <p>References: 
+ * <ul>
+ *     <li>
+ *         Bin packing problem (First Fit) 
+ * 	       <ul>
+ * 		       <li>Author: Bastian Rieck</li>
+ *             <li>Title: Basic Analysis of Bin-Packing Heuristics</li>
+ *         </ul>
+ *     </li>
+ *     <li>
+ *         Jackson all library 
+ * 	       <ul>
+ * 		       <li>Author: java2s.com</li>
+ * 			   <li>Email: info at java2s.com</li>
+ *             <li>Title: jackson-all-1.9.0.jar</li>
+ *         </ul>
+ *     </li>
+ * </ul>
  * 
  * @author Alexander Chetcuti
  *
@@ -447,6 +461,12 @@ public abstract class Common {
 		}
 	}
 	
+	/**
+	 * <p>The methods calls the <i>toString</i> method on an object of type <i>MusicLibrary</i>,
+	 * and them prints out the result.
+	 * 
+	 * @param musicLibrary The Music library object that needs to be printed.
+	 */
 	public static void printMusicLibrary(MusicLibrary musicLibrary) {
 		try {
 			System.out.println(musicLibrary.toString());
@@ -459,7 +479,15 @@ public abstract class Common {
 			ex.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * <p>The methods loops a list of tracks and then calls the <i>toString</i> method on 
+	 * an object of type <i>Track</i>, and on the artist of that particular track.
+	 * A check for guest artist is introduced to print any guest artists that
+	 * took part in the track being printed.
+	 * 
+	 * @param tracks The list of tracks that needs to be printed.
+	 */
 	public static void printTrackMusicians(List<Track> tracks) {
 		try {
 			for (Track t : tracks) {
@@ -479,7 +507,13 @@ public abstract class Common {
 			ex.printStackTrace();
 		}
 	}
-	
+
+	/**
+	 * <p>The methods loops a list of albums and then calls the <i>toString</i> method on 
+	 * an object of type <i>Album</i>, to print the details of that album.
+	 * 
+	 * @param albums The list of albums that needs to be printed.
+	 */
 	public static void printAlbums(List<Album> albums) {
 		try {
 			for (Album a : albums) {
@@ -495,6 +529,14 @@ public abstract class Common {
 		}
 	}
 
+
+	/**
+	 * <p>The  calls the <i>toString</i> method on an object of type <i>CompilationAlbum</i>,
+	 * to print the details of that album. The method also loops all the tracks of that 
+	 * album to print out details of every track in the album
+	 * 
+	 * @param compAlbum The Compilation album that needs to be printed.
+	 */
 	public static void printCompilationAlbum(CompilationAlbum compAlbum) {
 		try {
 			System.out.println(compAlbum.toString());

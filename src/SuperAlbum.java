@@ -1,8 +1,6 @@
-
-
 /**
  * <p>This is an abstract class which describes the most basic details
- * of an Album. Since all version of album have the ame common properties
+ * of an Album. Since all version of album have the same common properties
  * it was decided that having a super class for an album is appropriate.
  * 
  * @author Alexander Chetcuti
@@ -19,7 +17,7 @@ public abstract class SuperAlbum {
 	/**
 	 * Method will return the title of the album object.
 	 * 
-	 * @return The tile of the album.
+	 * @return The title of the album.
 	 */
 	public String getTitle() {
 		return this.title;
