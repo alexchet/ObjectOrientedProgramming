@@ -18,6 +18,7 @@ public class MusicOrganiser {
 		List<Band> bands = Common.loadBands(musicians);
 	    List<Track> tracks = Common.loadTracks(bands, musicians);
 		List<Album> albums = Common.loadAlbums(tracks, bands, musicians);
+	    tracks = Common.setAlbumsForTracks(tracks, albums);
 		
 		//STARTING BASICS 1
 		System.out.println("***************** Basics 1 ******************");

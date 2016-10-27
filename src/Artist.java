@@ -11,7 +11,7 @@ public abstract class Artist {
 	/**
 	 * Private field, ID of the artist.
 	 */
-	private int ID;
+	private int id;
 	
 	/**
 	 * Private field, name of the artist.
@@ -24,7 +24,7 @@ public abstract class Artist {
 	 * @return The ID of the artist.
 	 */
 	public int getID() {
-		return ID;
+		return id;
 	}
 
 	/**
@@ -32,8 +32,8 @@ public abstract class Artist {
 	 * 
 	 * @param ID The ID to be set for the artist.
 	 */	
-	public void setID(int iD) {
-		ID = iD;
+	public void setID(int id) {
+		this.id = id;
 	}
 
 	/**

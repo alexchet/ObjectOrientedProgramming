@@ -352,7 +352,6 @@ public abstract class Common {
 				for (Track t : tracks) {
 					if (a.getID() == t.getAlbumID()) {
 						a.addTrack(t);
-						t.setAlbum(a);
 					}
 				}
 				for (Band b : bands) {
@@ -375,6 +374,34 @@ public abstract class Common {
 		}
 		
 		return albums;
+	}
+	
+	/**
+	 * This method loops all the tracks that have been imported from the JSON file
+	 * and set the album to every track that is part of one
+	 * 
+	 * @param tracks The list of tracks that have been imported.
+	 * @param albums The list of albums that have been imported.
+	 * @return
+	 */
+	public static List<Track> setAlbumsForTracks(List<Track> tracks, List<Album> albums) {
+		try {
+			for (Album a : albums) {
+				for (Track t : tracks) {
+					if (a.getID() == t.getAlbumID()) {
+						t.setAlbum(a);
+					}
+				}
+			}
+		} catch (NullPointerException ex) {
+			System.out.println("Please make sure you passed the musicians");
+			ex.printStackTrace();
+		} catch (Exception ex) {
+			System.out.println("Something went wrong while processing");
+			ex.printStackTrace();
+		}
+		
+		return tracks;
 	}
 	
 	private static List<Album> readAlbum() {

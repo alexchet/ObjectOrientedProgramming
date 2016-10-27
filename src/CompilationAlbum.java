@@ -32,6 +32,8 @@ public class CompilationAlbum extends SuperAlbum {
 	/**
 	 * <p>This constructor initialises an object of type compilation album, and sets all the 
 	 * required data in their appropriate fields.
+	 * 
+	 * @param title The title of the compilation album.
 	 */
 	public CompilationAlbum(String title) {
 		this.setTitle(title);
@@ -79,7 +81,7 @@ public class CompilationAlbum extends SuperAlbum {
 	/**
 	 * Method will set the tracks of the album object.
 	 * 
-	 * @param comilationTracks The tracks to be set for the album.
+	 * @param compilationTracks The tracks to be set for the album.
 	 */	
 	public void setCompilationTracks(List<CompilationTrack> compilationTracks) {
 		CompilationTracks = compilationTracks;

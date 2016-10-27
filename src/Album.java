@@ -17,7 +17,7 @@ public class Album extends SuperAlbum {
 	/**
 	 * Private field, ID of the album
 	 */
-	private int ID;
+	private int id;
 	
 	/**
 	 * Private field, artist of the album
@@ -79,10 +79,10 @@ public class Album extends SuperAlbum {
 	/**
 	 * Method will return the ID of the album object.
 	 * 
-	 * @return The ID in the album.
+	 * @return ID The ID in the album.
 	 */
 	public int getID() {
-		return ID;
+		return this.id;
 	}
 
 	/**
@@ -90,8 +90,8 @@ public class Album extends SuperAlbum {
 	 * 
 	 * @param ID The ID to be set for the album.
 	 */
-	public void setID(int iD) {
-		ID = iD;
+	public void setID(int id) {
+		this.id = id;
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class Album extends SuperAlbum {
 	 * @return The artist in the album.
 	 */
 	public Artist getArtist() {
-		return artist;
+		return this.artist;
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class Album extends SuperAlbum {
 	 * @return The type in the album.
 	 */
 	public String getType() {
-		return type;
+		return this.type;
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class Album extends SuperAlbum {
 	 * @return The band ID in the album.
 	 */
 	public int getBandID() {
-		return bandID;
+		return this.bandID;
 	}
 
 	/**
@@ -154,7 +154,7 @@ public class Album extends SuperAlbum {
 	 * @return The musician ID in the album.
 	 */
 	public int getMusicianID() {
-		return musicianID;
+		return this.musicianID;
 	}
 
 	/**
@@ -172,13 +172,13 @@ public class Album extends SuperAlbum {
 	 * @return The list of the tracks in the album.
 	 */
 	public List<Track> getTracks() {
-		return tracks;
+		return this.tracks;
 	}
 
 	/**
 	 * Method will set the list of the tracks for the album object.
 	 * 
-	 * @param members The tracks to be set for the album.
+	 * @param tracks The tracks to be set for the album.
 	 */	
 	public void setTracks(List<Track> tracks) {
 		this.tracks = tracks;
