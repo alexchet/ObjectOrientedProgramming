@@ -141,5 +141,12 @@ public class MusicOrganiser {
 		
 		List<List<Track>> dvds = Common.backupFirstFit(tracks, Common.DVD_SIZE);
 		System.out.println("No of DVDs needed: " + dvds.size());
+		
+		
+		//-----------------------------------------------------------------------------//
+		//Testing
+		System.out.println("");
+		System.out.println("**************** Testing ****************");
+		Test.testCases();
 	}
 }

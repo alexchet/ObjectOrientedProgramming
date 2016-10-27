@@ -58,6 +58,10 @@ public class Musician extends Artist  {
 	 */
 	@Override
 	public String toString() {
-		return "Musician: " + this.getName();
+		if (this.getName() !=  "" && this.getName() != null) {
+			return "Musician: " + this.getName();
+		} else {
+			return "Please initialise the Musician properly";
+		}
 	}
 }

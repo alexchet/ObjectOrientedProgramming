@@ -70,10 +70,17 @@ public class Album extends SuperAlbum {
 	 * ensures that the list of tracks has been initialised.
 	 * 
 	 * @param track The track to be added to the album.
+	 * 
+	 * @return The track that was just add, with the new album pointer.
 	 */
-	public void addTrack(Track track) {
+	public Track addTrack(Track track) {
 		if (this.getTracks() == null) this.setTracks(new ArrayList<Track>());
 		this.getTracks().add(track);
+		
+		//set pointer for album in track object
+		track.setAlbum(this);
+		
+		return track;
 	}
 
 	/**

@@ -60,13 +60,19 @@ public class Track extends SuperTrack {
 	@Override
 	public String toString() {
 		try {
+			String duration = "";
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-			int minutes = super.getLength() / 60;
-			int seconds = super.getLength() - minutes * 60;
+			if (this.getLength() > 0)  {
+				int minutes = super.getLength() / 60;
+				int seconds = super.getLength() - minutes * 60;
+				duration = minutes + ":" + seconds;
+			} else {
+				duration = "N/A";
+			}
 			
 			return "Title: " + super.getTitle() + ", Artist: " + super.getArtist().getName() +
 			(super.getAlbum() != null ? ", Album: " + super.getAlbum().getTitle() : "") + ", Released: " +  
-			formatter.format(super.getReleased()) + ", Duration: " + minutes + ":" + seconds + 
+			formatter.format(super.getReleased()) + ", Duration: " + duration + 
 			", Times Played: " + super.getCountPlayed() + ", Rating: " + super.getRating();
 		} catch (NullPointerException ex) {
 			System.out.println("Please make sure all the information inserted.");

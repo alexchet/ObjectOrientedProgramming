@@ -101,6 +101,7 @@ public class Band extends Artist {
 			sMembers += m.getName();
 		}
 		
-		return "Band: " + this.getName() + "\nMusicians: " + sMembers;
+		return "Band: " + this.getName() + 
+				(sMembers != "" ? "\nMusicians: " + sMembers : "\nNo musicians in this band");
 	}
 }

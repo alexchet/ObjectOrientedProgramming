@@ -95,6 +95,11 @@ public class CompilationAlbum extends SuperAlbum {
 	 */
 	@Override
 	public String toString() {
-		return "Compilation Title: " + super.getTitle() + ", No of Tracks: " + this.getCompilationTracks().size();
+		try {
+			return "Compilation Title: " + super.getTitle() + ", No of Tracks: " + this.getCompilationTracks().size();
+		} catch(NullPointerException NPE) {
+			System.out.println("Sorry, please Input some tracks in the album");
+			return "";
+		}
 	}
 }

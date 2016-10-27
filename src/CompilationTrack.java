@@ -67,6 +67,7 @@ public class CompilationTrack extends SuperTrack {
 	 */
 	@Override
 	public String toString() {
-		return "Title: " +  super.getTitle() + ", Album: " + super.getAlbum().getTitle();
+		return "Title: " +  super.getTitle() + 
+				(super.getAlbum() != null ? ", Album: " + super.getAlbum().getTitle() : "");
 	}
 }
