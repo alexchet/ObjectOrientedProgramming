@@ -67,11 +67,10 @@ public abstract class Common {
 	public static final int DVD_SIZE = 4928307;
 	
 	/**
-	 * <p>This method uses the first fit algorithm to calculate how many
+	 * <p>This method uses the best fit algorithm to calculate how many
 	 * disks are needed to backup all the tracks in the music library.
-	 * Although this algorithm does not provide the smallest amount of
-	 * disks needed, it was chosen to preserve the order of the tracks 
-	 * when they are going to be backed up.
+	 * The method provides the smallest possible amount of disks needed when 
+	 * backing up the tracks.
 	 * 
 	 * @param tracks The list of tracks to be backed up.
 	 * @param diskSize The size of the disk that is going to be used for
@@ -79,7 +78,7 @@ public abstract class Common {
 	 * @return The multi-dimensional list of track lists representing 
 	 * a list of disks needed each with a list of tracks to be written.
 	 */
-	public static List<List<Track>> backupFirstFit(List<Track> tracks, int diskSize) {
+	public static List<List<Track>> backupBestFit(List<Track> tracks, int diskSize) {
 		List<List<Track>> bins = new ArrayList<List<Track>>();
 
 		try {
@@ -88,18 +87,30 @@ public abstract class Common {
 					bins.add(new ArrayList<Track>());
 				}
 				
-				boolean inserted = false;
+				int binIndex = -1;
+				double binSizeRemaining = -1;
 				for (List<Track> inputBin : bins) {
-					if (getSizeBin(inputBin) + t.getSize() < diskSize) {
-						inputBin.add(t);
-						inserted = true;
+					double totalAfterInsert = getSizeBin(inputBin) + (double)t.getSize();
+					if (totalAfterInsert < diskSize) {
+						double currentSizeRemaining = (double)diskSize - totalAfterInsert;
+						if (binIndex == -1) {
+							binIndex = bins.indexOf(inputBin);
+							binSizeRemaining = currentSizeRemaining;
+						} else {
+							if (binSizeRemaining > currentSizeRemaining) {
+								binIndex = bins.indexOf(inputBin);
+								binSizeRemaining = currentSizeRemaining;
+							}
+						}
 					}
 				}
 				
-				if (!inserted) {
+				if (binIndex == -1) {
 					List<Track> newBin = new ArrayList<Track>();
 					newBin.add(t);
 					bins.add(newBin);
+				} else {
+					bins.get(binIndex).add(t);
 				}
 			}
 		} catch (NullPointerException ex) {

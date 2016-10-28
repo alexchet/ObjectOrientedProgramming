@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import CustomExceptions.TracksNotFoundException;
+
 /**
  * <p>This class extends the class <i>SuperAlbum</i>. By doing this this class
  * can make use of all the properties inherited and can be set in the constructor
@@ -95,7 +97,7 @@ public class Album extends SuperAlbum {
 	/**
 	 * Method will set the ID of the album object.
 	 * 
-	 * @param ID The ID to be set for the album.
+	 * @param id The ID to be set for the album.
 	 */
 	public void setID(int id) {
 		this.id = id;
@@ -214,6 +216,10 @@ public class Album extends SuperAlbum {
 	@Override
 	public String toString() {
 		try {
+			if (this.getTracks() == null) {
+				throw new TracksNotFoundException();
+			}
+			
 			int iTotalRunningTime = 0, iTotalRating = 0;
 			double iTotalSize = 0;
 			for (Track t : this.getTracks()) {
@@ -228,8 +234,12 @@ public class Album extends SuperAlbum {
 			return "Album: " + this.getTitle() + ", Artist: " + this.getArtist().toString() + 
 			", Total running time: " + minutes + ":" + seconds + ", Size: " + (iTotalSize / 1024) + "MB" +
 			", Average Rating: " + ((double)iTotalRating / (double)this.getTracks().size());
-		} catch(NullPointerException NPE) {
-			System.out.println("Sorry, please Input some tracks in the album");
+		} catch (TracksNotFoundException ex) {
+			System.out.println(ex.getMessage());
+			return "";
+		} catch(NullPointerException ex) {
+			System.out.println("There seems to be some kind odf problem with the data used");
+			ex.printStackTrace();
 			return "";
 		}
 	}

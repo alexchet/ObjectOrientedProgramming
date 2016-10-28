@@ -141,7 +141,7 @@ public abstract class Test {
 		
 		//Testing Bin Packing problem
 		System.out.println("Test 22: Testing Bin Packing problem");
-		List<List<Track>> cds = Common.backupFirstFit(testAlbum.getTracks(), Common.CD_SIZE);
+		List<List<Track>> cds = Common.backupBestFit(testAlbum.getTracks(), Common.CD_SIZE);
 		System.out.println("No of CDs needed: " + cds.size());
 	}
 }

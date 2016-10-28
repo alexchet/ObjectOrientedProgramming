@@ -136,10 +136,10 @@ public class MusicOrganiser {
 		for (Track t : albumNWA.getTracks()) {
 			tracks.add(t);
 		}
-		List<List<Track>> cds = Common.backupFirstFit(tracks, Common.CD_SIZE);
+		List<List<Track>> cds = Common.backupBestFit(tracks, Common.CD_SIZE);
 		System.out.println("No of CDs needed: " + cds.size());
 		
-		List<List<Track>> dvds = Common.backupFirstFit(tracks, Common.DVD_SIZE);
+		List<List<Track>> dvds = Common.backupBestFit(tracks, Common.DVD_SIZE);
 		System.out.println("No of DVDs needed: " + dvds.size());
 		
 		

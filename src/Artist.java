@@ -30,7 +30,7 @@ public abstract class Artist {
 	/**
 	 * Method will set the ID of the artist object.
 	 * 
-	 * @param ID The ID to be set for the artist.
+	 * @param id The ID to be set for the artist.
 	 */	
 	public void setID(int id) {
 		this.id = id;

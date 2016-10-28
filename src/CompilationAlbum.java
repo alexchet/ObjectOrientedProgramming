@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import CustomExceptions.TracksNotFoundException;
+
 /**
  * <p>This class extends the class <i>SuperAlbum</i>. By doing this this class
  * can make use of all the properties inherited and can be set in the constructor
@@ -96,9 +98,18 @@ public class CompilationAlbum extends SuperAlbum {
 	@Override
 	public String toString() {
 		try {
+			if (this.getCompilationTracks() == null) {
+				throw new TracksNotFoundException();
+			}
+			
 			return "Compilation Title: " + super.getTitle() + ", No of Tracks: " + this.getCompilationTracks().size();
-		} catch(NullPointerException NPE) {
-			System.out.println("Sorry, please Input some tracks in the album");
+
+		} catch (TracksNotFoundException ex) {
+			System.out.println(ex.getMessage());
+			return "";
+		} catch(NullPointerException ex) {
+			System.out.println("There seems to be some kind odf problem with the data used");
+			ex.printStackTrace();
 			return "";
 		}
 	}
