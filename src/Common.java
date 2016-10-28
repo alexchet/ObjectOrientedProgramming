@@ -382,7 +382,7 @@ public abstract class Common {
 	 * 
 	 * @param tracks The list of tracks that have been imported.
 	 * @param albums The list of albums that have been imported.
-	 * @return
+	 * @return List of tracks with the new album pointer.
 	 */
 	public static List<Track> setAlbumsForTracks(List<Track> tracks, List<Album> albums) {
 		try {

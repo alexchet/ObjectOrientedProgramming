@@ -136,10 +136,11 @@ public abstract class Test {
 		//Adding track to compilation album
 		System.out.println("Test 21: Get to string of compilation album");
 		testCompAlbum.addCompilationTrack(testCompTrack);
-		System.out.print(testCompAlbum.toString());
+		System.out.println(testCompAlbum.toString());
+		System.out.println("");
 		
 		//Testing Bin Packing problem
-		System.out.println("Test 21: Testing Bin Packing problem");
+		System.out.println("Test 22: Testing Bin Packing problem");
 		List<List<Track>> cds = Common.backupFirstFit(testAlbum.getTracks(), Common.CD_SIZE);
 		System.out.println("No of CDs needed: " + cds.size());
 	}
